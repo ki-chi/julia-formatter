@@ -1,3 +1,6 @@
+# This script is originally distributed by kdheepak under MIT License
+# [kdheepak/JuliaFormatter\.vim](https://github.com/kdheepak/JuliaFormatter.vim)
+
 using JuliaFormatter
 using Dates
 using JSON
