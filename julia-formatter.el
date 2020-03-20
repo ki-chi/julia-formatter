@@ -49,7 +49,7 @@
   :risky t)
 
 (defcustom julia-formatter-timeout-in-seconds 5
-  "Time-out in seconds for formatting."
+  "The length of time, in seconds, to wait for a response from the server."
   :group 'julia-formatter
   :type '(integer))
 
@@ -90,7 +90,7 @@
     (set-process-filter julia-formatter-process
                         '(lambda (process output)
                            (setq julia-formatter-json-output output)))
-    (message "[JuliaFormatter] Start the server")))
+    (message "[JuliaFormatter][INFO] Server started")))
 
 (defun julia-format (code)
   "Format Julia CODE by sending it to the server."
@@ -111,7 +111,7 @@
     (let (output status)
       (accept-process-output julia-formatter-process julia-formatter-timeout-in-seconds)
       (if (equal julia-formatter-json-output "")
-          (message (concat "[JuliaFormatter][INFO] Timeout in " (int-to-string julia-formatter-timeout-in-seconds) " sec.") )
+          (message (concat "[JuliaFormatter][INFO] Timeout in " (int-to-string julia-formatter-timeout-in-seconds) " sec. to wait for the response from the server") )
         (progn ;; else
           (when julia-formatter-json-log
             (message (concat "[JuliaFormatter][OUTPUT] " julia-formatter-json-output)))
