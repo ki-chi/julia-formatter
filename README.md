@@ -43,6 +43,6 @@ If you use use-package,
     :hook (julia-mode . (lambda() (julia-formatter-server-start))))
 ```
 
-## Lisence
+## License
 
 MIT
