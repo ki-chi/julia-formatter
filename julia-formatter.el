@@ -77,7 +77,6 @@
 
 (defun julia-formatter-server-start ()
   "Run the server of JuliaFormatter.jl."
-  (interactive)
   (unless (get-process julia-formatter-process-name)
     (setq julia-formatter-process
           (let ((process-connection-type nil))
